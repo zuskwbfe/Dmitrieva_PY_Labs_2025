@@ -7,6 +7,7 @@ class  QuadraticEquation:
         self.b = b
         self.c = c
         self.roots = []
+        self.calculate_roots()
 
     def calculate_roots(self):
         if self.a == 0:
@@ -57,16 +58,21 @@ class  QuadraticEquation:
     def create_from_input(cls):
         while True:
             a, is_correct1 = cls.get_coef(1, 'Введите коэффициент А:')
-            b, is_correct2 = cls.get_coef(2, 'Введите коэффициент B:')
-            c, is_correct3 = cls.get_coef(3, 'Введите коэффициент C:')
-
-            if not (is_correct1 and is_correct2 and is_correct3):
+            if not is_correct1:
                 print("Введены некорректные значения, повторите попытку.")
                 continue
-
             if a == 0:
                 print("Коэффициент A не может быть равен 0 для квадратного уравнения")
                 continue
+            b, is_correct2 = cls.get_coef(2, 'Введите коэффициент B:')
+            if not is_correct2:
+                print("Введены некорректные значения, повторите попытку.")
+                continue
+            c, is_correct3 = cls.get_coef(3, 'Введите коэффициент C:')
+            if not is_correct3:
+                print("Введены некорректные значения, повторите попытку.")
+                continue
+
 
             return cls(a, b, c)
 

@@ -46,6 +46,7 @@ def main():
             continue
         roots = get_roots(a,b,c)
         len_roots = len(roots)
+        print(f"Уравнение: {a}x² + {b}x + {c} = 0")
         if len_roots == 0:
             print('Нет корней')
         elif len_roots == 1:
